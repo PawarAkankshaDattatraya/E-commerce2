@@ -6,12 +6,15 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+require('dotenv').config()
 
 app.use(express.json());
 app.use(cors());
 
 // Database Connection With MongoDB
-mongoose.connect("mongodb+srv://pawarakanksha:pawarakanksha1603@cluster0.6mry2yf.mongodb.net/e-commerce");
+const dbConnect = require("./config/dbConnect");
+dbConnect();
+// mongoose.connect("mongodb+srv://pawarakanksha:pawarakanksha1603@cluster0.6mry2yf.mongodb.net/e-commerce");
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
 
